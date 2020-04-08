@@ -9,6 +9,8 @@ import HomePage from './pages/homepage/homepage.component';
 import ShopPage from './pages/shop/shop.component';
 import Header from './components/header/header.component';
 import Authentication from './pages/authentication/authentication.component';
+import { selectCurrentUser } from './selectors/user.selectors';
+import CheckoutPage from './pages/checkout/checkout.component';
 
 
 class App extends React.Component {
@@ -39,6 +41,7 @@ class App extends React.Component {
       <Header />
       <Switch>
         <Route path="/shop" component={ShopPage} />
+        <Route path="/checkout" component={CheckoutPage} />
         <Route path="/signin" render={() => currentUser ? <Redirect to="/" /> : <Authentication />} />
         <Route exact path="/" component={HomePage} />
       </Switch>
@@ -48,7 +51,7 @@ class App extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  currentUser: state.user.currentUser
+  currentUser: selectCurrentUser(state) 
 })
 
 const mapDispatchToProps = dispatch => ({
