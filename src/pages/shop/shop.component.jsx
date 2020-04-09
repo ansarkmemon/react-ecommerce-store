@@ -1,15 +1,14 @@
 import React from 'react'
-import { SHOP_DATA } from '../../mockData'
-import PreviewCollection from '../../components/preview-collection/preview-collection.component'
+import { Route } from 'react-router-dom';
+import CollectionsOverview from '../../components/collections-overview/collections-overview.component';
+import CollectionPage from '../collection/collection.component';
 
-const ShopPage = () => {
+const ShopPage = ({ match }) => {
   return (
     <div className="shop-page">
-      { SHOP_DATA.map(collection => (
-        <PreviewCollection key={collection.id} data={collection} />
-      ))}
+      <Route exact path={`${match.path}`} component={CollectionsOverview} />
+      <Route path={`${match.path}/:collectionId`} component={CollectionPage} />
     </div>
   )
 }
-
 export default ShopPage

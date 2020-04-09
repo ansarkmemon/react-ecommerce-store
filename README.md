@@ -39,6 +39,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ## Todo
 - [ ] Add lazy loading for the images on the menu
+- [ ] Add docs for new libraries like `reselect` and `redux-persist` within the ReadME
 
 ## Learn More
 
