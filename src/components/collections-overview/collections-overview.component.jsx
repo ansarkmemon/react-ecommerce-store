@@ -6,10 +6,11 @@ import PreviewCollection from '../preview-collection/preview-collection.componen
 import { selectShopCollection } from '../../selectors/shop.selectors';
 
 const CollectionsOverview = ({ collections }) => {
+  console.log(collections)
   return (
     <div className="collections-overview">
-      { collections.map((collection) => (
-        <PreviewCollection key={collection.id} data={collection} />
+      { Object.keys(collections).map(key => (
+        <PreviewCollection key={collections[key].id} data={collections[key]} />
       ))}
     </div>
   )
